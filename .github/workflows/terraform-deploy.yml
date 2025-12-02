@@ -58,18 +58,20 @@ jobs:
 
       - name: Terraform Plan
         run: |
+          VAR_FILE="environment/${TF_WORKSPACE}.auto.tfvars"
+          echo "Using var-file: $VAR_FILE"
           if [ "${{ github.event.inputs.action }}" == "destroy" ]; then
-            terraform plan -destroy
+            terraform plan -destroy -var-file="$VAR_FILE" -input=false
           else
-            terraform plan
+            terraform plan -var-file="$VAR_FILE" -input=false
           fi
 
       - name: Terraform Apply / Destroy
         run: |
+          VAR_FILE="environment/${TF_WORKSPACE}.auto.tfvars"
           if [ "${{ github.event.inputs.action }}" == "destroy" ]; then
-            terraform destroy -auto-approve
+            terraform destroy -auto-approve -var-file="$VAR_FILE" -input=false
           else
-            terraform apply -auto-approve
+            terraform apply -auto-approve -var-file="$VAR_FILE" -input=false
           fi
-
     
