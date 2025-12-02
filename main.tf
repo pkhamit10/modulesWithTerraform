@@ -12,7 +12,7 @@ module "ec2_instance" {
   global_tags            = var.global_tags
   instance_webserver_tag = var.instance_webserver_tag
   script_path            = "${path.module}/scripts/app.py"
-  environment_name       = terraform.workspace
+  environment_name       = var.environment_name
 
 }
 module "networking" {
