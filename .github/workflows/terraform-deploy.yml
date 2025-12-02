@@ -17,7 +17,7 @@ on:
         type: choice
         options:
           - apply
-          - destory
+          - destroy
 
 jobs:
   terraform:
