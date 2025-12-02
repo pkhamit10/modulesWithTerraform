@@ -58,8 +58,8 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          VAR_GLOBALS="environment/globals.auto.tfvars"
-          VAR_ENV="environment/${{ github.event.inputs.env }}.auto.tfvars"
+          VAR_GLOBALS="environments/globals.auto.tfvars"
+          VAR_ENV="environments/${{ github.event.inputs.env }}.auto.tfvars"
           if [ "${{ github.event.inputs.action }}" == "destroy" ]; then
             terraform plan -destroy -var-file="$VAR_GLOBALS" -var-file="$VAR_ENV" -input=false
           else
@@ -68,8 +68,8 @@ jobs:
 
       - name: Terraform Apply / Destroy
         run: |
-          VAR_GLOBALS="environment/globals.auto.tfvars"
-          VAR_ENV="environment/${{ github.event.inputs.env }}.auto.tfvars"
+          VAR_GLOBALS="environments/globals.auto.tfvars"
+          VAR_ENV="environments/${{ github.event.inputs.env }}.auto.tfvars"
           if [ "${{ github.event.inputs.action }}" == "destroy" ]; then
             terraform destroy -auto-approve -var-file="$VAR_GLOBALS" -var-file="$VAR_ENV" -input=false
           else
