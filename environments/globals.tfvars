@@ -1,7 +1,7 @@
 # -------------------------------
 # Global Settings
 # -------------------------------
-region = "eu-west-2"
+region = "us-east-1"
 
 # # Remote State Configuration
 # state_bucket_name   = "jk-terraform-state-bucket-12345"

@@ -2,10 +2,10 @@
 # -------------------------------
 # VPC and Networking
 # -------------------------------
-vpc_cidr_block_value    = "10.0.0.0/16"
-subnet_cidr_block_value = "10.0.0.0/24"
+vpc_cidr_block_value    = "10.10.0.0/16"
+subnet_cidr_block_value = "10.10.1.0/24"
 route_cidr_block_value  = "0.0.0.0/0"
-availability_zone_name  = "eu-west-2a"
+availability_zone_name  = "us-east-1a"
 map_public_ip_on_launch = true
 vpc_tag = {
   Name = "module_demo_vpc_dev"
@@ -28,8 +28,8 @@ igw_name_tag = {
 # -------------------------------
 # EC2 Instance Configuration
 # -------------------------------
-ami_value = "ami-046c2381f11878233"
-# instance_type_value = "t3.micro" # mot needed as we have default in variable.tf as per environment 
+ami_value = "ami-0c02fb55956c7d316"
+instance_type_value = "t3.micro" # mot needed as we have default in variable.tf as per environment 
 ssh_user_ubuntu = "ubuntu"
 instance_webserver_tag = {
   Name = "web-serve-dev"
@@ -39,7 +39,7 @@ instance_webserver_tag = {
 # -------------------------------
 # Key Pair
 # -------------------------------
-key_pair_name    = "jkvpclab-keypair"
+key_pair_name    = "pkawsprod"
 # key_pair_name    = "tf-key"
 # public_key_path  = "~/.ssh/id_rsa.pub"
 # private_key_path = "~/.ssh/id_rsa"

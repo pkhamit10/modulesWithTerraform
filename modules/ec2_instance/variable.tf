@@ -16,14 +16,18 @@ variable "ami_value" {
   description = "The AMI to use for the instance"
   type        = string
 }
+# variable "instance_type_value" {
+#   description = "The type of instance to use"
+#   type        = map(string)
+#   default = {
+#     "dev"   = "t3.micro",
+#     "stage" = "t3.micro",
+#     "prod"  = "t3.micro"
+#   }
+# }
 variable "instance_type_value" {
   description = "The type of instance to use"
-  type        = map(string)
-  default = {
-    "dev"   = "t3.micro",
-    "stage" = "t3.micro",
-    "prod"  = "t3.micro"
-  }
+  type        = string
 }
 variable "key_pair_name" {
   description = "The name of the AWS key pair to use for the instance"
@@ -56,6 +60,7 @@ variable "ssh_user_ubuntu" {
 variable "script_path" {
   type        = string
   description = "Path to the app.py script template"
+  default = "scripts/app.py"
 }
 
 variable "environment_name" {

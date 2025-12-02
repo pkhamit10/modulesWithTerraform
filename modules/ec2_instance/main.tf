@@ -3,7 +3,8 @@
 # -------------------------------
 resource "aws_instance" "web_server" {
   ami           = var.ami_value
-  instance_type = lookup(var.instance_type_value, replace(terraform.workspace, "env-", ""), "t2.micro")// This will lookup values as per workspace env, if not take the default value t2.micro 
+  #instance_type = lookup(var.instance_type_value, replace(terraform.workspace, "env-", ""), "t2.micro")// This will lookup values as per workspace env, if not take the default value t2.micro 
+  instance_type = var.instance_type_value
   # key_name      = aws_key_pair.key_pairName.key_name
   # key_name      = "${var.key_pair_name}-${terraform.workspace}"
   key_name      = var.key_pair_name
